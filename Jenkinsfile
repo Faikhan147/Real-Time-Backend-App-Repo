@@ -347,7 +347,7 @@ stage('Monitor Deployment for Production (Pods + Database Health Check)') {
                     string(name: 'ENV', value: "${params.ENVIRONMENT}")
                 ]
                 
-                def lastRevision = sh(script: "helm history app-${params.ENVIRONMENT} --namespace ${params.ENVIRONMENT} | tail -2 | head -1 | awk '{print \$1}'", returnStdout: true).trim()
+                def lastRevision = sh(script: "helm history database-${params.ENVIRONMENT} --namespace ${params.ENVIRONMENT} | tail -2 | head -1 | awk '{print \$1}'", returnStdout: true).trim()
                 sh "helm rollback database-${params.ENVIRONMENT} ${lastRevision} --namespace ${params.ENVIRONMENT} || echo 'Rollback failed!'"
             }
         }
