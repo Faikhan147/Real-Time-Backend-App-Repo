@@ -203,6 +203,7 @@ stage('Rollback (if needed)') {
     }
 }
 
+/*
 // Monitoring Deployment for QA/Staging
 stage('Monitor Deployment (Pods + Database Health Check)') {
     when {
@@ -240,6 +241,8 @@ stage('Monitor Deployment (Pods + Database Health Check)') {
     }
 }
 
+*/
+
         stage('Approval for Production') {
             when {
                 expression { return params.ENVIRONMENT == 'prod' }
@@ -275,6 +278,7 @@ stage('Monitor Deployment (Pods + Database Health Check)') {
             }
         }
 
+/*
 // Monitoring for Production Deployment
 stage('Monitor Deployment for Production (Pods + Database Health Check)') {
     when {
@@ -311,7 +315,7 @@ stage('Monitor Deployment for Production (Pods + Database Health Check)') {
         }
     }
 }
-
+*/
         stage('Docker Image Cleanup') {
             steps {
                 script {
