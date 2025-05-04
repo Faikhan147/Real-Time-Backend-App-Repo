@@ -1,4 +1,5 @@
 FROM node:alpine
+RUN apt-get update && apt-get upgrade -y && apt-get install -y curl && apt-get clean
 WORKDIR /app
 COPY package*.json ./
 RUN npm install --legacy-peer-deps
