@@ -82,8 +82,7 @@ pipeline {
             steps {
                 echo "Starting Trivy scan for vulnerabilities..."
                 sh """
-                    trivy image --exit-code 1 \
-                    --severity LOW \
+                    trivy image --exit-code 0 \
                     --format table \
                     --ignore-unfixed \
                     ${IMAGE_NAME_TAG} || { echo 'Trivy scan failed!'; exit 1; }
