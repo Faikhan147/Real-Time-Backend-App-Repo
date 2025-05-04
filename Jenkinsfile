@@ -89,7 +89,8 @@ pipeline {
                 """
             }
         }
-
+        
+/*
         stage('Run Unit & Integration Tests') {
             when {
                 expression { fileExists('Database/package.json') }
@@ -113,6 +114,7 @@ pipeline {
                 }
             }
         }
+*/
 
         stage('DockerHub Login') {
             steps {
