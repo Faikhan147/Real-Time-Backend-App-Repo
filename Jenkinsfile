@@ -17,7 +17,7 @@ pipeline {
         SONAR_SCANNER_HOME = "/opt/sonar-scanner"
         IMAGE_NAME_TAG = "${BACKEND_IMAGE_NAME}:${TAG}"
         HELM_CHART_DIR = "helm/database-chart"
-        DATABASE_URL = credentials('database-url')
+        DATABASE_URL = credentials('backend-database-url')
     }
 
     stages {
